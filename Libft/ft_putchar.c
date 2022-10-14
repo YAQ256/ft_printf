@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyacoub- <cyacoub-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/19 15:22:54 by cyacoub-          #+#    #+#             */
-/*   Updated: 2022/09/19 17:12:00 by cyacoub-         ###   ########.fr       */
+/*   Created: 2022/10/14 14:38:53 by cyacoub-          #+#    #+#             */
+/*   Updated: 2022/10/14 15:35:13 by cyacoub-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+/**
+ * Ft_putchar() writes a single character to the standard output
+ * 
+ * @param c the character to print
+ * 
+ * @return The number of bytes written to the standard output.
+ */
+int	ft_putchar(char c)
 {
-	size_t	i;
-	size_t	j;
-
-	if (*to_find == '\0')
-		return ((char *) str);
-	i = 0;
-	while ((*str != '\0') && (i < len))
-	{
-		j = 0;
-		while ((*(str + j)) == (*(to_find + j)) && (i + j < len))
-		{
-			if (*(to_find + j + 1) == '\0')
-				return ((char *) str);
-			j++;
-		}
-		i++;
-		str++;
-	}
-	return (0);
+	return (write(1, &c, 1));
 }
