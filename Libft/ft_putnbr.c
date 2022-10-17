@@ -6,15 +6,15 @@
 /*   By: cyacoub- <cyacoub-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 15:43:29 by cyacoub-          #+#    #+#             */
-/*   Updated: 2022/10/14 15:54:48 by cyacoub-         ###   ########.fr       */
+/*   Updated: 2022/10/17 16:33:56 by cyacoub-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
- * Ft_putnbr() takes an integer as an argument and prints it to the standard output
- * 
+ * Ft_putnbr() takes an integer as an argument and prints it to the standard
+ * output
  * @param n the number to print
  * 
  * @return The number of characters printed.
@@ -28,7 +28,7 @@ int	ft_putnbr(int n)
 	{
 		if (n == -2147483648)
 		{
-			nbr += ft_putstr(-2);
+			nbr += ft_putstr("-2");
 			nbr += ft_putnbr(147483648);
 		}
 		else if (n > 9)
