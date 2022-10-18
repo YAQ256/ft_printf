@@ -6,12 +6,21 @@
 /*   By: cyacoub- <cyacoub-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 16:08:55 by cyacoub-          #+#    #+#             */
-/*   Updated: 2022/10/18 14:25:53 by cyacoub-         ###   ########.fr       */
+/*   Updated: 2022/10/18 16:31:37 by cyacoub-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/**
+ * The function ft_printf() takes a string and a variable number of arguments,
+ * and
+ * returns the number of characters printed
+ * 
+ * @param inp the string to be printed
+ * 
+ * @return The number of characters printed.
+ */
 int	ft_printf(char const *inp, ...)
 {
 	int		i;
@@ -25,11 +34,11 @@ int	ft_printf(char const *inp, ...)
 	va_end(ap);
 	return (cont);
 }
-/*
-int	main()
+
+/* int	main()
 {
 //	char	str[]= "Hola mundo";
 //	int	a = 42;
 //	char	c = 'Y';
-	ft_printf("%%", a);
-}*/
+	ft_printf("%X", a);
+} */
