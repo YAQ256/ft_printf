@@ -6,7 +6,7 @@
 /*   By: cyacoub- <cyacoub-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 13:03:48 by cyacoub-          #+#    #+#             */
-/*   Updated: 2022/10/18 13:06:19 by cyacoub-         ###   ########.fr       */
+/*   Updated: 2022/10/18 14:15:04 by cyacoub-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_putnbr_uns(unsigned int n)
 	unsigned int	count;
 
 	count = 0;
-	if (n >= 0 || n <= 2147483647)
+	if (n <= 0 || n <= 2147483647)
 	{
 		if (n > 9)
 		{

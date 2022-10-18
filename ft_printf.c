@@ -6,7 +6,7 @@
 /*   By: cyacoub- <cyacoub-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 16:08:55 by cyacoub-          #+#    #+#             */
-/*   Updated: 2022/10/18 12:52:06 by cyacoub-         ###   ########.fr       */
+/*   Updated: 2022/10/18 14:25:53 by cyacoub-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	ft_printf(char const *inp, ...)
 /*
 int	main()
 {
-	char	str[]= "Hola mundo";
+//	char	str[]= "Hola mundo";
 //	int	a = 42;
 //	char	c = 'Y';
-	ft_printf("Hola mundo\n %s", str);
+	ft_printf("%%", a);
 }*/
