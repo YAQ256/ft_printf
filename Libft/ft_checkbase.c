@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_checkbase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyacoub- <cyacoub-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 16:08:55 by cyacoub-          #+#    #+#             */
-/*   Updated: 2022/10/18 12:52:06 by cyacoub-         ###   ########.fr       */
+/*   Created: 2022/10/18 12:10:08 by cyacoub-          #+#    #+#             */
+/*   Updated: 2022/10/18 12:52:28 by cyacoub-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf(char const *inp, ...)
+/**
+ * It checks if the base is valid
+ * 
+ * @param base the string containing the base to be used.
+ * 
+ * @return the value of the base.
+ */
+int	ft_checkbase(char *base)
 {
-	int		i;
-	int		cont;
-	va_list	ap;
+	int	i;
 
 	i = 0;
-	cont = 0;
-	va_start(ap, inp);
-	cont += ft_prsprint(i, cont, inp, ap);
-	va_end(ap);
-	return (cont);
+	if (base[0] == '\0' || base[1] == '\0')
+		return (0);
+	while (base[i])
+	{
+		if (base[i] == '+' || base [i] == '-' || base[i] < 32 || base[i] > 126)
+			return (0);
+		i++;
+	}
+	return (1);
 }
-/*
-int	main()
-{
-	char	str[]= "Hola mundo";
-//	int	a = 42;
-//	char	c = 'Y';
-	ft_printf("Hola mundo\n %s", str);
-}*/

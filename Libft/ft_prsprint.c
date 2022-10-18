@@ -6,7 +6,7 @@
 /*   By: cyacoub- <cyacoub-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:15:43 by cyacoub-          #+#    #+#             */
-/*   Updated: 2022/10/17 16:37:12 by cyacoub-         ###   ########.fr       */
+/*   Updated: 2022/10/18 13:02:54 by cyacoub-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,23 @@
 
 static int	checkparam(const char *inp, int i, int cont, va_list (ap))
 {
-	if (inp[i + 1] == '%')
-		cont += write(1, "%", 1);
-	if (inp[i + 1] == 'c')
-		cont += ft_putchar(va_arg(ap, int));
-	if (inp[i + 1] == 's')
-		cont += ft_putstr(va_arg(ap, char *));
-	//if (inp[i + 1] == 'p')
-	//	cont += ft_hexpoint(va_arg(ap, size_t));
-	if (inp[i + 1] == 'i' || inp[i + 1] == 'd')
-		cont += ft_putnbr(va_arg(ap, int));
-	//if (inp[i + 1] == 'u')
-	//	cont += ft_putunsnbr(va_arg(ap, unsigned int));
-	//if (inp[i + 1] == 'x')
-	//	cont += ft_putunsnbr_base(va_arg(ap, int), "0123456789abcdef");
-	//if (inp[i + 1] == 'X')
-	//	cont += ft_putunsnbr_base(va_arg(ap, int), "0123456789ABCDEF");
-	return (cont);
-}
+	if (input[i + 1] == '%')
+		count += write(1, "%", 1);
+	if (input[i + 1] == 'c')
+		count += ft_putchar(va_arg(argms, int));
+	if (input[i + 1] == 's')
+		count += ft_putstr(va_arg(argms, char *));
+	if (input[i + 1] == 'p')
+		count += ft_hexpoint(va_arg(argms, size_t));
+	if (input[i + 1] == 'i' || input[i + 1] == 'd')
+		count += ft_putnbr(va_arg(argms, int));
+	if (input[i + 1] == 'u')
+		count += ft_putnbr_uns(va_arg(argms, unsigned int));
+	if (input[i + 1] == 'x')
+		count += ft_putnbr_base_uns(va_arg(argms, int), "0123456789abcdef");
+	if (input[i + 1] == 'X')
+		count += ft_putnbr_base_uns(va_arg(argms, int), "0123456789ABCDEF");
+	return (count);
 
 int	ft_prsprint(int i, int cont, const char *inp, va_list ap)
 {
