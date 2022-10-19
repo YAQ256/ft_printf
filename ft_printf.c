@@ -6,7 +6,7 @@
 /*   By: cyacoub- <cyacoub-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 16:08:55 by cyacoub-          #+#    #+#             */
-/*   Updated: 2022/10/19 09:41:33 by cyacoub-         ###   ########.fr       */
+/*   Updated: 2022/10/19 15:29:50 by cyacoub-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,11 @@ int	ft_printf(char const *inp, ...)
 	return (cont);
 }
 
-/* int	main()
+/* #include <stdio.h>
+int	main()
 {
-	char	str[]= "es una secta";
-	int	a = 42;
+//	char	str[]= "es una secta";
+//	int	a = 42;
 //	char	c = 'Y';
-	ft_printf("%d Madrid %s", a, str);
+	printf("%d", ft_printf(""));
 } */
