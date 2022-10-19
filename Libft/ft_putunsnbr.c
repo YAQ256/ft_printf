@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checkbase.c                                     :+:      :+:    :+:   */
+/*   ft_putunsnbr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyacoub- <cyacoub-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 12:10:08 by cyacoub-          #+#    #+#             */
-/*   Updated: 2022/10/18 16:20:16 by cyacoub-         ###   ########.fr       */
+/*   Created: 2022/10/19 09:30:28 by cyacoub-          #+#    #+#             */
+/*   Updated: 2022/10/19 09:30:37 by cyacoub-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
- * It checks if the base is valid
+ * It prints an unsigned int
  * 
- * @param base the string containing the base to be used.
+ * @param nb the number to be printed
  * 
- * @return the value of the base.
+ * @return The number of characters printed.
  */
-int	ft_checkbase(char *base)
+int	ft_putunsnbr(unsigned int nb)
 {
-	int	i;
+	unsigned int	nbr;
 
-	i = 0;
-	if (base[0] == '\0' || base[1] == '\0')
-		return (0);
-	while (base[i])
+	nbr = 0;
+	if (nb >= 10)
 	{
-		if (base[i] == '+' || base [i] == '-' || base[i] < 32 || base[i] > 126)
-			return (0);
-		i++;
+		nbr += ft_putunsnbr(nb / 10);
+		nbr += ft_putunsnbr(nb % 10);
 	}
-	return (1);
+	else
+		nbr += ft_putchar(nb + '0');
+	return (nbr);
 }

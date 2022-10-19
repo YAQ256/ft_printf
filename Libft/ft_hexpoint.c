@@ -5,29 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyacoub- <cyacoub-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 12:57:21 by cyacoub-          #+#    #+#             */
-/*   Updated: 2022/10/18 12:58:01 by cyacoub-         ###   ########.fr       */
+/*   Created: 2022/10/19 09:28:02 by cyacoub-          #+#    #+#             */
+/*   Updated: 2022/10/19 09:28:11 by cyacoub-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
- * This function takes an unsigned long and prints it in hexadecimal format
+ * It prints a pointer in hexadecimal format
  * 
- * @param pnt the pointer to print
+ * @param ptr the pointer to print
  * 
  * @return The number of characters printed.
  */
-int	ft_hexpoint(unsigned long pnt)
+int	ft_hexpoint(unsigned long ptr)
 {
-	int	count;
+	int	result;
 
-	count = 0;
-	count += write(1, "0x", 2);
-	if (pnt != 0)
-		count += ft_putnbr_base_unslng(pnt, "0123456789abcdef");
+	result = 0;
+	result += write(1, "0x", 2);
+	if (!ptr)
+		result += write (1, "0", 1);
 	else
-		count += write (1, "0", 1);
-	return (count);
+		result += ft_putlonghex(ptr, "0123456789abcdef");
+	return (result);
 }

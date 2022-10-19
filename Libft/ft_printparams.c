@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_prsprint.c                                      :+:      :+:    :+:   */
+/*   ft_printparams.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyacoub- <cyacoub-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 16:15:43 by cyacoub-          #+#    #+#             */
-/*   Updated: 2022/10/18 14:08:29 by cyacoub-         ###   ########.fr       */
+/*   Created: 2022/10/19 09:17:13 by cyacoub-          #+#    #+#             */
+/*   Updated: 2022/10/19 09:35:53 by cyacoub-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "libft.h"
 
 static int	ft_checkparam(const char *inp, int i, int cont, va_list (ap))
 {
 	if (inp[i + 1] == '%')
-		cont += write(1, "%", 1);
+		cont += ft_putchar('%');
 	if (inp[i + 1] == 'c')
 		cont += ft_putchar(va_arg(ap, int));
 	if (inp[i + 1] == 's')
@@ -25,15 +27,15 @@ static int	ft_checkparam(const char *inp, int i, int cont, va_list (ap))
 	if (inp[i + 1] == 'i' || inp[i + 1] == 'd')
 		cont += ft_putnbr(va_arg(ap, int));
 	if (inp[i + 1] == 'u')
-		cont += ft_putnbr_uns(va_arg(ap, unsigned int));
+		cont += ft_putunsnbr(va_arg(ap, unsigned int));
 	if (inp[i + 1] == 'x')
-		cont += ft_putnbr_base_uns(va_arg(ap, int), "0123456789abcdef");
+		cont += ft_puthex(va_arg(ap, int), "0123456789abcdef");
 	if (inp[i + 1] == 'X')
-		cont += ft_putnbr_base_uns(va_arg(ap, int), "0123456789ABCDEF");
+		cont += ft_puthex(va_arg(ap, int), "0123456789ABCDEFG");
 	return (cont);
 }
 
-int	ft_prsprint(int i, int count, const char *inp, va_list argms)
+int	ft_printparams(int i, int count, const char *inp, va_list argms)
 {
 	if (!inp)
 		return (0);

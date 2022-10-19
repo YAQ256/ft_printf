@@ -1,35 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyacoub- <cyacoub-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 15:42:49 by cyacoub-          #+#    #+#             */
-/*   Updated: 2022/10/19 09:32:22 by cyacoub-         ###   ########.fr       */
+/*   Created: 2022/10/19 09:28:58 by cyacoub-          #+#    #+#             */
+/*   Updated: 2022/10/19 09:29:34 by cyacoub-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
- * It writes a string to the standard output
- * 
- * @param str The string to be printed.
+ * It takes an unsigned int and a string of characters, and prints the
+ * unsigned int in hexadecimal form using the characters in the string
+ * as the base
+ *
+ * @param nbr the number to be converted
+ * @param base the base to convert to
  * 
  * @return The number of characters printed.
  */
-int	ft_putstr(char *str)
+int	ft_puthex(unsigned int nbr, char *base)
 {
+	int	nb_tab[100];
 	int	i;
+	int	hex;
 
-	if (!str)
-		return (write(1, "(null)", 6));
+	hex = 0;
 	i = 0;
-	while (str[i] != '\0')
+	if (nbr == 0)
+		hex += ft_putchar('0');
+	while (nbr)
 	{
-		write(1, &str[i], 1);
+		nb_tab[i] = nbr % 16;
+		nbr = nbr / 16;
 		i++;
 	}
-	return (i);
+	while (--i >= 0)
+		hex += ft_putchar(base[nb_tab[i]]);
+	return (hex);
 }

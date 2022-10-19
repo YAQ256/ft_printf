@@ -1,47 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base_uns.c                               :+:      :+:    :+:   */
+/*   ft_putlonghex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cyacoub- <cyacoub-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 13:01:06 by cyacoub-          #+#    #+#             */
-/*   Updated: 2022/10/18 13:01:49 by cyacoub-         ###   ########.fr       */
+/*   Created: 2022/10/19 09:25:51 by cyacoub-          #+#    #+#             */
+/*   Updated: 2022/10/19 09:26:31 by cyacoub-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
- * It takes an unsigned int and a base, and prints the unsigned int in the base
+ * It takes a long unsigned integer and a string of characters, and prints
+ * the long unsigned integer in hexadecimal format using the characters in
+ * the string as the base
  * 
  * @param nbr the number to be converted
  * @param base the base to convert to
  * 
  * @return The number of characters printed.
  */
-int	ft_putnbr_base_uns(unsigned int nbr, char *base)
+int	ft_putlonghex(unsigned long nbr, char *base)
 {
-	int	nbr_final[100];
-	int	prnt[3];
+	int	nb_tab[100];
+	int	i;
+	int	hex;
 
-	prnt[0] = 0;
-	prnt[1] = 0;
-	prnt[2] = 0;
-	if (ft_checkbase(base))
+	hex = 0;
+	i = 0;
+	if (nbr == 0)
+		hex += ft_putchar('0');
+	while (nbr)
 	{
-		if (nbr == 0)
-			prnt[2] += ft_putchar('0');
-		while (base[prnt[1]])
-			prnt[1]++;
-		while (nbr)
-		{
-			nbr_final[prnt[0]] = nbr % prnt[1];
-			nbr = nbr / prnt[1];
-			prnt[0]++;
-		}
-		while (--prnt[0] >= 0)
-			prnt[2] += ft_putchar(base[nbr_final[prnt[0]]]);
+		nb_tab[i] = nbr % 16;
+		nbr = nbr / 16;
+		i++;
 	}
-	return (prnt[2]);
+	while (--i >= 0)
+		hex += ft_putchar(base[nb_tab[i]]);
+	return (hex);
 }
