@@ -6,7 +6,7 @@
 /*   By: cyacoub- <cyacoub-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 09:17:13 by cyacoub-          #+#    #+#             */
-/*   Updated: 2022/10/19 15:30:33 by cyacoub-         ###   ########.fr       */
+/*   Updated: 2022/11/14 11:48:23 by cyacoub-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	ft_checkparam(const char *inp, int i, int cont, va_list (ap))
 	if (inp[i + 1] == 'x')
 		cont += ft_puthex(va_arg(ap, int), "0123456789abcdef");
 	if (inp[i + 1] == 'X')
-		cont += ft_puthex(va_arg(ap, int), "0123456789ABCDEFG");
+		cont += ft_puthex(va_arg(ap, int), "0123456789ABCDEF");
 	return (cont);
 }
 
